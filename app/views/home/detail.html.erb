@@ -1,0 +1,330 @@
+
+   
+    <!-- *** NAVBAR ***
+ _________________________________________________________ -->
+
+<%= render :partial => "/home/navbar" %>
+    <!-- *** NAVBAR END *** -->
+
+    <div id="all">
+
+        <div id="content">
+            <div class="container">
+
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <div class="row" id="productMain">
+                        <div class="col-sm-6">
+                            <div id="mainImage">
+                                <img src="<%=@post.img1%>" style ="width:100%; height:100%;"alt="" class="img-responsive">
+                            </div>
+
+                    
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box">
+                                <h1 class="text-center"><%=@post.name%></h1>
+                                <p class="goToDescription"><a href="#details" class="scroll-to"><%=@post.price%></a>
+                                </p>
+                                <p class="price">별점 갯수 : <%=@post.star%>개</p>
+
+                                <p class="text-center buttons">
+                                    <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>찜하기</a> 
+                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> <%=@post.phone%></a>
+                                </p>
+
+
+                            </div>
+
+                                
+                                     
+                             <div class="box">
+                             
+                                <%if user_signed_in?%>
+                                 <%if current_user.opinions.where(:post_id =>@post.id).take.nil?%>
+                                  <form action ="/home/write/<%=@post.id%>" method="POST">
+                                       <div class ="col-md-2"> 총평</div>
+                                       <div class ="col-md-10">
+                                       <span class="star-rating">
+                                          <input type="radio" name="rating1" value="1"><i></i>
+                                          <input type="radio" name="rating1" value="2"><i></i>
+                                          <input type="radio" name="rating1" value="3"><i></i>
+                                          <input type="radio" name="rating1" value="4"><i></i>
+                                          <input type="radio" name="rating1" value="5"><i></i>
+                                        </span>
+                                        </div>
+                                        <br>
+                                          <div class ="col-md-2">가성비:</div>
+                                          
+                                          <div class ="col-md-10">
+                                          <span class="star-rating">
+                                          <input type="radio" name="rating2" value="1"><i></i>
+                                          <input type="radio" name="rating2" value="2"><i></i>
+                                          <input type="radio" name="rating2" value="3"><i></i>
+                                          <input type="radio" name="rating2" value="4"><i></i>
+                                          <input type="radio" name="rating2" value="5"><i></i>
+                                          </span>
+                                          </div>
+                                         <br>
+                                           <div class ="col-md-2">실력:</div>
+                                          
+                                          <div class ="col-md-10">
+                                          <span class="star-rating">
+                                          <input type="radio" name="rating3" value="1"><i></i>
+                                          <input type="radio" name="rating3" value="2"><i></i>
+                                          <input type="radio" name="rating3" value="3"><i></i>
+                                          <input type="radio" name="rating3" value="4"><i></i>
+                                          <input type="radio" name="rating3" value="5"><i></i>
+                                          </span>
+                                          </div>
+                                          
+                                          <br>
+                                            <div class ="col-md-2">컷트:</div>
+                                          
+                                          <div class ="col-md-10">
+                                          <span class="star-rating">
+                                          <input type="radio" name="rating4" value="1"><i></i>
+                                          <input type="radio" name="rating4" value="2"><i></i>
+                                          <input type="radio" name="rating4" value="3"><i></i>
+                                          <input type="radio" name="rating4" value="4"><i></i>
+                                          <input type="radio" name="rating4" value="5"><i></i>
+                                          </span>
+                                          </div>
+                                          
+                                          <br>
+                                            <div class ="col-md-2">펌:</div>
+                                          
+                                          <div class ="col-md-10">
+                                          <span class="star-rating">
+                                          <input type="radio" name="rating5" value="1"><i></i>
+                                          <input type="radio" name="rating5" value="2"><i></i>
+                                          <input type="radio" name="rating5" value="3"><i></i>
+                                          <input type="radio" name="rating5" value="4"><i></i>
+                                          <input type="radio" name="rating5" value="5"><i></i>
+                                          </span>
+                                          </div>
+                                          
+                                          
+                                          <br>
+                                            <div class ="col-md-2">염색:</div>
+                                          
+                                          <div class ="col-md-10">
+                                          <span class="star-rating">
+                                          <input type="radio" name="rating6" value="1"><i></i>
+                                          <input type="radio" name="rating6" value="2"><i></i>
+                                          <input type="radio" name="rating6" value="3"><i></i>
+                                          <input type="radio" name="rating6" value="4"><i></i>
+                                          <input type="radio" name="rating6" value="5"><i></i>
+                                          </span>
+                                          </div>
+                                        <textarea rows ="5" cols="100" name ="text"></textarea>
+                                        <br>
+                                     <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i>평가하기!</a>
+                                  </form>
+                                      <%else%>
+                                      당신은 이미 평가를 하셨습니다.
+                                      <%end%>
+                                  <%else%>
+                                  로그인을 해 주세요.
+                                  <%end%>
+                                  </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                        </div>
+
+                    </div>
+                    
+                    <div class="box" id="details">
+                        <p>
+                            <h4>가격정보</h4>
+                            <p><%=@post.price%></p>
+                            <h4>주소</h4>
+                            <p><%=@post.address%></p>
+                          
+                           
+
+                            <div class="social">
+                                <h4>친구에게 추천하기!</h4>
+                                <p>
+                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                </p>
+                            </div>
+                    </div>
+                    
+                    
+
+                <% unless @post.opinions.nil?%>
+                          <%@post.opinions.each do |y|%>
+                           <div class ="box" id="details">
+                           <div class ="row">
+                           <div class ="col-md-1">
+                         
+                           총평 별점 :<%=y.general%>
+                           </div>
+                         <div class ="col-md-2">
+                         
+                           유저 :<%=User.find(y.user_id).email%>
+                           </div>
+                           <div class= "col-md-7">
+                           후기 : <%=y.op%>
+                           </div> 
+                           <div class= "col-md-2">
+                           <% if user_signed_in?%>
+                            <% if  Likeopinion.where(:user_id =>current_user.id, :opinion_id => y.id).empty?%>
+                            <button class="btn-btn-primary" id ="good_<%=y.id%>">
+                            <div id ="goodletter_<%=y.id%>"> 좋아요</div><div id ="noletter_<%=y.id%>" class ="hidden">좋아요 취소</div></button><span id ="likenumber_<%=y.id%>"><%=y.likenumber%></span><span class ="hidden" id ="ids_<%=y.id%>"><%=y.id%></span>
+                            <%else%>
+                           <button class="btn-btn-primary" id ="good_<%=y.id%>"> <div id ="goodletter_<%=y.id%>" class="hidden"> 좋아요</div><div id ="noletter_<%=y.id%>">좋아요 취소</div></button><span id ="likenumber_<%=y.id%>"><%=y.likenumber%></span><span class ="hidden" id ="ids_<%=y.id%>"><%=y.id%></span>
+                            <%end%>
+                          <%else%>
+                          <%end%>
+                            
+                                
+                           </div>
+                            </div>
+                           </div>
+                           
+                          
+                  
+                           
+                           
+                           
+                            <script>
+    $(function(){
+    var num = <%=y.likenumber%>
+    var txt = "";
+    $("#goodletter_<%=y.id%>").click(
+        
+        function(){
+                    //ajax로 서버에 데이터를 날려서 모델에저장한다.
+                    $.ajax({//대괄호가 하나 더 들어가있어야된데...
+                        
+                        data: { id :$("#ids_<%=y.id%>").text()},
+                        url:  "/home/likeopinion_process",
+                        success: function(data)
+                                {
+                                 num = num + 1
+                                 $("#likenumber_<%=y.id%>").html(num);
+                                 $("#goodletter_<%=y.id%>").addClass("hidden");
+                                 $("#noletter_<%=y.id%>").removeClass("hidden");
+                                }
+
+                })
+        }
+        );
+        
+        
+        
+        
+        
+        
+         $("#noletter_<%=y.id%>").click(
+        
+        function(){
+                    //ajax로 서버에 데이터를 날려서 모델에저장한다.
+                    $.ajax({//대괄호가 하나 더 들어가있어야된데...
+                        
+                        data: { id :$("#ids_<%=y.id%>").text()},
+                        url:  "/home/likeopinion_process",
+                        success: function(data)
+                                { //동작이 여러개 있을 때는 함수를   function을 쓴다. //data는빼도 된다.
+                                           //2.text area 안에 있는 내용을 뽑아서     출력한다.
+                                 
+                                 num = num - 1
+                                 $("#likenumber_<%=y.id%>").html(num);
+                                 $("#noletter_<%=y.id%>").addClass("hidden");
+                                 $("#goodletter_<%=y.id%>").removeClass("hidden");
+                                }
+
+                })
+        }
+        );
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+})
+    
+    
+    </script>
+
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                            <%end%>
+                <%else%>
+                    <div class ="box" id="details">
+                           <div class ="row">
+                             등록된 의견이 없습니다.  
+                           </div>
+                    </div>
+                <%end%>
+                   
+              
+
+                  
+
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2015 Your name goes here.</p>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="http://www.bootstrapious.com">Responsive Templates</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
+                        <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/bootstrap-hover-dropdown.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/front.js"></script>
+   
+
+
+
+
+</body>
+
+</html>

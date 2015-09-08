@@ -1,0 +1,243 @@
+
+
+
+
+<%= render :partial => "/home/navbar" %>
+
+
+    <div id="all">
+
+        <div id="content">
+
+       
+            <!-- *** ADVANTAGES HOMEPAGE ***
+ _________________________________________________________ -->
+            <div id="advantages">
+
+                <div class="container">
+                    <div class="same-height-row">
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon"><i class="fa fa-heart"></i>
+                                </div>
+
+                                <h3><a href="#">신뢰도 있는 리뷰</a></h3>
+                                <p>자체적인 알고리즘과 인력을 동원하여 알바 댓글,리뷰를 차단합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon"><i class="fa fa-tags"></i>
+                                </div>
+
+                                <h3><a href="#">최다 리뷰</a></h3>
+                                <p>한 미용실당 평균 14.5개의 풍부한 리뷰를 제공합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="box same-height clickable">
+                                <div class="icon"><i class="fa fa-thumbs-up"></i>
+                                </div>
+
+                                <h3><a href="#">국내 최초</a></h3>
+                                <p>국내 최초의 미용실 평가 사이트로 그동안 접하지 못했던 유용한 정보를 제공합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.container -->
+
+            </div>
+            
+            
+            
+            
+            <div id="hot">
+ 
+                <div class="box">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2>이주의미용실</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="product-slider">
+                   
+                        <% @post.each do |x|%>
+                        <div class="item"> 
+                      
+                       
+                            <div class="product" style = "height:400px;width:178px;">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front" >
+                                            <a href="/home/detail/<%=x.id%>">
+                                                <img src="<%=x.img1%>" alt="" style = "height:234px;width:176px;">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="/home/detail/<%=x.id%>">
+                                                <img src="<%=x.img2%>" alt="" class="img-responsive" style = "height:234px;width:176px;">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/home/detail/<%=x.id%>" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive" style = "height:234px;width:176px;">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="/home/detail/<%=x.id%>" style ="text-align:center; position:relative; margin-to:-10%;">  <%=x.name%></a></h3>
+                                     별점갯수 : <%=x.star%>
+                                    <p class="read-more"><a href="/home/detail/<%=x.id%>" class="btn btn-primary">평가하러 가기</a>
+                                   </p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+                       
+   <% end %>
+                       
+                    </div>
+                    <!-- /.product-slider -->
+                </div>
+                <!-- /.container -->
+
+            </div>
+            <!-- /#hot -->
+
+            <!-- *** HOT END *** -->
+
+            <!-- *** GET INSPIRED ***
+ _________________________________________________________ -->
+            <div class="container" data-animate="fadeInUpBig">
+                <div class="col-md-12">
+                    <div class="box slideshow">
+                        <h3>Get Inspired</h3>
+                        <p class="lead">Get the inspiration from our world class designers</p>
+                        <div id="get-inspired" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <a href="#">
+                                    <img src="img/getinspired1.jpg" alt="Get inspired" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="img/getinspired2.jpg" alt="Get inspired" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="img/getinspired3.jpg" alt="Get inspired" class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- *** GET INSPIRED END *** -->
+
+            <!-- *** BLOG HOMEPAGE ***
+ _________________________________________________________ -->
+
+            <div class="box text-center" data-animate="fadeInUp">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h3 class="text-uppercase">From our blog</h3>
+
+                        <p class="lead">What's new in the world of fashion? <a href="blog.html">Check our blog!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="col-md-12" data-animate="fadeInUp">
+
+                    <div id="blog-homepage" class="row">
+                        <div class="col-sm-6">
+                            <div class="post">
+                                <h4><a href="post.html">Fashion now</a></h4>
+                                <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
+                                </p>
+                                <hr>
+                                <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="post">
+                                <h4><a href="post.html">Who is who - example blog post</a></h4>
+                                <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
+                                </p>
+                                <hr>
+                                <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                    ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p class="read-more"><a href="post.html" class="btn btn-primary">Continue reading</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /#blog-homepage -->
+                </div>
+            </div>
+            <!-- /.container -->
+
+            <!-- *** BLOG HOMEPAGE END *** -->
+
+
+        </div>
+        <!-- /#content -->
+
+        <!-- *** FOOTER ***
+ _________________________________________________________ -->
+       
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">짤 2015 Your name goes here.</p>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="http://www.bootstrapious.com">Responsive Templates</a> with support from <a href="http://kakusei.cz">Designov챕 p힂edm휎ty</a> 
+                        <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/bootstrap-hover-dropdown.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/front.js"></script>

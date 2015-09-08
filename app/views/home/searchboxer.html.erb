@@ -1,0 +1,88 @@
+안녕
+
+<%= render :partial => "/home/navbar" %>
+
+
+
+    <div id="all">
+
+        <div id="content">
+
+<%for i in 0...@ar.length%>
+<%=@ar[i]%>
+<%end%>
+
+
+<%unless @ar.nil?%>
+
+
+  <div id="hot">
+ 
+                <div class="box">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2>이주의미용실</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="product-slider">
+                    
+                   <%for i in 0...@ar.length%>
+                
+                   <% x=Post.find(@ar[i].to_i)%>
+                        <div class="item"> 
+                      
+                        
+                            <div class="product" style = "height:400px;width:178px;">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front" >
+                                            <a href="/home/detail/<%=x.id%>">
+                                                <img src="<%=x.img1%>" alt="" style = "height:234px;width:176px;">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="/home/detail/<%=x.id%>">
+                                                <img src="<%=x.img2%>" alt="" class="img-responsive" style = "height:234px;width:176px;">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/home/detail/<%=x.id%>" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive" style = "height:234px;width:176px;">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="/home/detail/<%=x.id%>" style ="text-align:center; position:relative; margin-to:-10%;">  <%=x.name%></a></h3>
+                                     별점갯수 : <%=x.star%>
+                                    <p class="read-more"><a href="/home/detail/<%=x.id%>" class="btn btn-primary">평가하러 가기</a>
+                                   </p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+                       
+                     <% end %>
+                       <%end%>
+            
+                    </div>
+                    <!-- /.product-slider -->
+                </div>
+                <!-- /.container -->
+
+            </div>
+            </div>
+            </div>
+            
+            
+            
+                <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/bootstrap-hover-dropdown.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/front.js"></script>
