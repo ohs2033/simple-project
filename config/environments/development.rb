@@ -1,5 +1,10 @@
 Rails.application.configure do
+
+
   # Settings specified here will take precedence over those in config/application.rb.
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.default_url_options={host:'https://hairstar-lyusungwon-1.c9.io', post:3000}
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

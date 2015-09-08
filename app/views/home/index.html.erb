@@ -62,6 +62,12 @@
                     <div class="container">
                         <div class="col-md-12">
                             <h2>이주의미용실</h2>
+<% if user_signed_in? %>
+  <p><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?" }, class: 'btn btn-default'%></p>
+<% else %>
+  <p><%= link_to "로그인", new_user_session_path, class: 'btn btn-default' %></p>
+  <p><%= link_to "페이스북으로 로그인", user_omniauth_authorize_path(:facebook) %></p>
+<% end %>                            
                         </div>
                     </div>
                 </div>

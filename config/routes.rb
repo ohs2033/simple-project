@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
   
-  devise_for :users
+  match ":controller(/:action(/:id))", :via => [:post, :get, :delete]
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root :to => "home#index"
-  get ':controller(/:action(/:id))'
-  post ':controller(/:action(/:id))'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
