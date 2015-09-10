@@ -53,104 +53,68 @@
 
             </div>
             
-            
-            
-            
-            <div id="hot">
- 
-                <div class="box">
-                    <div class="container">
-                        <div class="col-md-12">
-                            <h2>이주의미용실</h2>
-<% if user_signed_in? %>
-  <p><%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?" }, class: 'btn btn-default'%></p>
-<% else %>
-  <p><%= link_to "로그인", new_user_session_path, class: 'btn btn-default' %></p>
-  <p><%= link_to "페이스북으로 로그인", user_omniauth_authorize_path(:facebook) %></p>
-<% end %>                            
+            <div class ="row">
+                <div class="col-md-9">
+                <!--여기서 반복문이 들어가줘야 함.-->
+                
+                  <% @post.each do |x|%>
+                  <a href="/home/detail/<%=x.id%>">
+                    <div id ="shop_box" class ="box" style ="margin-left:40px; padding:30px;">
+                        <div class= "row">
+                         <div class= "col-md-12" style ="border-bottom: 1px solid #DDD;margin-left:10px;margin-right:10px;">
+                             <div class="col-md-8">
+                             
+                             <%=x.name%>
+                             </div>
+                             <div class="col-md-4" style ="">
+                             총 평점 :<%=x.star%>
+                               <span class="star-rating small" >
+                                          <i></i>
+                                          <i class="on"></i>
+                                          <i></i>
+                                          <i></i>
+                                          <i></i>
+                               </span>
+                             </div>
+                             
+                             </div>
+                         </div>
+                         <div class="row" style ="padding-left:10px;margin-left:20px;">
+                         <sapn style="color:gray">
+                          <%=x.address%>
+                         </span>
+                         </div>
+                         
+                         
                         </div>
+                    
+                
+                  </a>
+                 <%end%>
+                    </div>
+                
+                
+                <!--shopbox-->
+                
+                
+                <div class="col-md-3">
+               
+                    <div id ="ranking-box" class ="box"style ="height:80%;margin:20px;" >
                     </div>
                 </div>
-
-                <div class="container">
-                    <div class="product-slider">
-                   
-                        <% @post.each do |x|%>
-                        <div class="item"> 
-                      
-                       
-                            <div class="product" style = "height:400px;width:178px;">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front" >
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img1%>" alt="" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img2%>" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="/home/detail/<%=x.id%>" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                </a>
-                                <div class="text">
-                                    <h3><a href="/home/detail/<%=x.id%>" style ="text-align:center; position:relative; margin-to:-10%;">  <%=x.name%></a></h3>
-                                     별점갯수 : <%=x.star%>
-                                    <p class="read-more"><a href="/home/detail/<%=x.id%>" class="btn btn-primary">평가하러 가기</a>
-                                   </p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.product -->
-                        </div>
-                       
-   <% end %>
-                       
-                    </div>
-                    <!-- /.product-slider -->
-                </div>
-                <!-- /.container -->
-
+                
+                
+                
             </div>
-            <!-- /#hot -->
+         
+            
+          
 
             <!-- *** HOT END *** -->
 
             <!-- *** GET INSPIRED ***
  _________________________________________________________ -->
-            <div class="container" data-animate="fadeInUpBig">
-                <div class="col-md-12">
-                    <div class="box slideshow">
-                        <h3>Get Inspired</h3>
-                        <p class="lead">Get the inspiration from our world class designers</p>
-                        <div id="get-inspired" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <a href="#">
-                                    <img src="img/getinspired1.jpg" alt="Get inspired" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#">
-                                    <img src="img/getinspired2.jpg" alt="Get inspired" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#">
-                                    <img src="img/getinspired3.jpg" alt="Get inspired" class="img-responsive">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- *** GET INSPIRED END *** -->
-
-            <!-- *** BLOG HOMEPAGE ***
- _________________________________________________________ -->
+           
 
             <div class="box text-center" data-animate="fadeInUp">
                 <div class="container">

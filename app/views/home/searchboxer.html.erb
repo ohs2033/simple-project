@@ -10,66 +10,67 @@
 
 
 
-<%unless @ar.nil?%>
 
 
-  <div id="hot">
- 
-                <div class="box">
-                    <div class="container">
-                        <div class="col-md-12">
-                            <h2>이주의미용실</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="product-slider">
-                    
-                   <%for i in 0...@ar.length%>
+ <div class ="row">
+ <%unless @ar.nil?%>
+                <div class="col-md-9">
+                <!--여기서 반복문이 들어가줘야 함.-->
                 
-                   <% x=Post.find(@ar[i].to_i)%>
-                        <div class="item"> 
-                      
-                        
-                            <div class="product" style = "height:400px;width:178px;">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front" >
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img1%>" alt="" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img2%>" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="/home/detail/<%=x.id%>" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                </a>
-                                <div class="text">
-                                    <h3><a href="/home/detail/<%=x.id%>" style ="text-align:center; position:relative; margin-to:-10%;">  <%=x.name%></a></h3>
-                                     별점갯수 : <%=x.star%>
-                                    <p class="read-more"><a href="/home/detail/<%=x.id%>" class="btn btn-primary">평가하러 가기</a>
-                                   </p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.product -->
+                  <% @result.each do |x|%>
+                  <a href="/home/detail/<%=x.id%>">
+                    <div id ="shop_box" class ="box" style ="margin-left:40px; padding:30px;">
+                        <div class= "row">
+                         <div class= "col-md-12" style ="border-bottom: 1px solid #DDD;margin-left:10px;margin-right:10px;">
+                             <div class="col-md-8">
+                             
+                             <%=x.name%>
+                             </div>
+                             <div class="col-md-4" style ="">
+                             총 평점 :<%=x.star%>
+                               <span class="star-rating small" >
+                                          <i></i>
+                                          <i class="on"></i>
+                                          <i></i>
+                                          <i></i>
+                                          <i></i>
+                               </span>
+                             </div>
+                             
+                             </div>
+                         </div>
+                         <div class="row" style ="padding-left:10px;margin-left:20px;">
+                         <sapn style="color:gray">
+                          <%=x.address%>
+                         </span>
+                         </div>
+                         
+                         
                         </div>
-                       
-                        <% end %>
-                       <%end%>
-            
+                    
+                
+                  </a>
+                 <%end%>
                     </div>
-                    <!-- /.product-slider -->
+                
+             
+                   <%end%>
+                <!--shopbox-->
+                
+                
+                <div class="col-md-3">
+               
+                    <div id ="ranking-box" class ="box"style ="height:80%;margin:20px;" >
+                    </div>
                 </div>
-                <!-- /.container -->
-
+                
+                
+                
             </div>
+ 
+            
+            
+            
             </div>
             </div>
             

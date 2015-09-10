@@ -2,37 +2,63 @@
  _________________________________________________________ -->
     <div id="top">
         <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
-                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">뜨는 미용실</a>  <a href="#">뜨는 미용실을 찾아보세요.</a>
+            <div class="col-md-8 offer" data-animate="fadeInDown">
+             <div class="col-md-3">
+                <a href ="/" style ="margin-top:10px; font-size:20px;">HAIRSTAR</a>
+             </div>
+                <div class="col-md-9" style ="height:30px;">
+                
+                    <form action ="/home/searchboxer/" method ="POST">
+                        <div class="input-group" style ="height:20px; width:500px">
+                            <input type="text" class="form-control" placeholder="지역 또는 상호명으로 검색" name ="searchkey" id ="searchkey">
+                            <span class="input-group-btn">
+                            </span>
+                               <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search" style="margin-top:-20px;margin-bottom:0px;">
+                                <span class="sr-only">Toggle search</span>
+                                <i class="fa fa-search"></i>
+                                </button>
+                           
+                        </div>
+                    </form>
+                </div>            
             </div>
-            <div class="navbar-collapse collapse">        
-               <ul class="nav navbar-nav navbar-right">
+            
+            <div class="col-md-4 offer"style = "height:25px;">
+            <div class="navbar-collapse collapse"style = "height:25px;">        
+               <ul class="nav navbar-nav navbar-right"style = "padding:0px; margin-top:10px;">
                 <% if user_signed_in? %>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"style = "top:-100%;">
                       <%= image_tag(current_user.profile_image, size: '20x20', style:'border-radius:3px;vertical-align:top;') if current_user.profile_image %>
                       <%= current_user.name %>
                       <b class="caret"></b>
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style = "height:25px;">
                       <li><%= link_to "My Profile", edit_user_registration_path %></li>
                     </ul>
                   </li>
                   <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
                 <% else %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in
+                  <li class="dropdown" style = "height:25px;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style = "padding:0px;">Sign in
                      <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><%= link_to "with Auth Blog", new_user_session_path %></li>
                       <li><%= link_to "with Facebook", user_omniauth_authorize_path(:facebook) %></li>
                     </ul>
                   </li>
-                  <li><%= link_to "Sign up", new_user_registration_path %></li>
+                  
+                  <li style = "padding:0px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style = "padding:0px;"><%= link_to "Sign up", new_user_registration_path %></a></li>
                 <% end %>
               </ul>
             </div>
-        </div>
+            
+            
+          </div><!--col-md-6-->
+
+          
+        </div><!--div-container-->
     
 <!--이거 뭐임
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
@@ -67,218 +93,12 @@
 -->
         </div>
 
-    </div>
+    <br>
+    <br>
 
     <!-- *** TOP BAR END *** -->
    
     <!-- *** NAVBAR ***
  _________________________________________________________ -->
 
-    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
-        <div class="container">
-            <div class="navbar-header">
-
-                <a class="navbar-brand home" href="/" data-animate-hover="bounce">
-                    <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
-                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
-                </a>
-                <div class="navbar-buttons">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class="fa fa-align-justify"></i>
-                    </button>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                  
-                </div>
-            </div>
-            <!--/.navbar-header -->
-
-            <div class="navbar-collapse collapse" id="navigation">
-
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="/">Home</a>
-                    </li>
-                   
-
-                    
-
-                   
-
-            </div>
-            <!--/.nav-collapse -->
-
-            <div class="navbar-buttons">
-              <div class="navbar-collapse collapse right" id="basket-overview">
-           
-            <% if user_signed_in?%>
-            <br>
-               <button class="btn btn-primary">
-            <%=current_user.email%>님 환영합니다.</button>
-            <button class="btn btn-primary"><span style ="color:white"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></span></button>
-            <%else%>
-            
-              
-                    <a href="users/sign_in" class="btn btn-primary navbar-btn"><span class="hidden-sm">로그인하기</span></a>
-                
-            <%end%>
-            </div>
-                <!--/.nav-collapse -->
-
-                <div class="navbar-collapse collapse right" id="search-not-mobile">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-
-            </div>
-            
-            
-            <div id ="aa">
-            <%unless @show.nil?%>
-            <%=@arr[0]%>
-            <%end%>
-            </div>
-            <div class="collapse clearfix" id="search">
-
-              <form action ="/home/searchboxer/" method ="POST">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name ="searchkey" id ="searchkey">
-                        <span class="input-group-btn">
-                        </span>
-                        <button type = "btn-btn-primary" value ="검색">검색</button>
-
-		    
-                    </div>
-                    
-            </form>
-            </div>
-            <br>
-            <br>
-            
-            
-            <br><br>
-              <div id="hot">
- 
-                <div class="box">
-                    <div class="container">
-                        <div class="col-md-12">
-                            <h2>검색된 미용실</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="product-slider">
-                   <%unless @show.nil?%>
-                        <% for i in 0...@ar.length%>
-                        <div class="item"> 
-                        <%x=Post.find(@ar[i].to_i)%>
-                       
-                            <div class="product" style = "height:400px;width:178px;">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front" >
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img1%>" alt="" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="/home/detail/<%=x.id%>">
-                                                <img src="<%=x.img2%>" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="/home/detail/<%=x.id%>" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive" style = "height:234px;width:176px;">
-                                </a>
-                                <div class="text">
-                                    <h3><a href="/home/detail/<%=x.id%>" style ="text-align:center; position:relative; margin-to:-10%;">  <%=x.name%></a></h3>
-                                     별점갯수 : <%=x.star%>
-                                    <p class="read-more"><a href="/home/detail/<%=x.id%>" class="btn btn-primary">평가하러 가기</a>
-                                   </p>
-                                </div>
-                                <!-- /.text -->
-                            </div>
-                            <!-- /.product -->
-                        </div>
-                       
-   <% end %>
-   <%end%>
-                       
-                    </div>
-                    <!-- /.product-slider -->
-                </div>
-                <!-- /.container -->
-
-            </div>
-            <!-- /#hot -->
-
-            <!-- *** HOT END *** -->
-
-            <!-- *** GET INSPIRED ***
-            
-            <!--/.nav-collapse -->
-            
-            <script>
-          
-$(function(){
-    
-    $("#searchkey[type='text']").change(
-        
-        function(){
-                    //ajax로 서버에 데이터를 날려서 모델에저장한다.
-                    $.ajax({//대괄호가 하나 더 들어가있어야된데...
-                      
-                        data: { searchkey :$("#searchkey").val()},
-                        url:  "/home/searchboxer",
-                        success: function(data)
-                                { //동작이 여러개 있을 때는 함수를   function을 쓴다. //data는빼도 된다.
-                                           //2.text area 안에 있는 내용을 뽑아서     출력한다.
-                                           
-                                   var txt = $("#searchkey").val(); //jquery value :전송버튼을 누르면 값이 들어온다.               
-                           
-                               //alert(txt);   //그냥 alert하면 안됨. 함수로 동작을 지정해주어야 함!
-                               
-                              <%@ar2 =%> data.text
-                               $("#aa").html(data.text);
-                                }
-
-                })
-        }
-        );
-})
-            
-            </script>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-        </div>
-        <!-- /.container -->
-    </div>
-    <!-- /#navbar -->
-
-    <!-- *** NAVBAR END *** -->
+  
