@@ -69,11 +69,13 @@
                              <div class="col-md-4" style ="">
                              총 평점 :<%=x.star%>
                                <span class="star-rating small" >
-                                          <i></i>
+                                   <%1.upto(5) do |i|%>
+                                       <%if i==x.star%>
                                           <i class="on"></i>
+                                       <%else%>
                                           <i></i>
-                                          <i></i>
-                                          <i></i>
+                                        <%end%>
+                                    <%end%>      
                                </span>
                              </div>
                              
